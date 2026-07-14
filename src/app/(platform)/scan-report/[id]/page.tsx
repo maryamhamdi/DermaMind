@@ -1,4 +1,4 @@
-import { getScanHistoryById } from "../../../../features/dermaScan/server/dermaScan.actions";
+import { getScanHistoryById } from "../../../../features/DermaScan/server/dermaScan.actions";
 import ScanReportView from "../../../../features/DermaScan/components/ScanReportView"
 export default async function ScanReportPage({
   params,
