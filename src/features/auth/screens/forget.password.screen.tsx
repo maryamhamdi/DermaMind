@@ -12,9 +12,6 @@ import {
     faLock, 
     faCheckCircle,
     faSpinner,
-    faKey,
-    faUserShield,
-    faClock
 } from "@fortawesome/free-solid-svg-icons";
 import forgetPassword from "../server/forgetPassword.action";
 import { toast } from "react-toastify";
