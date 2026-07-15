@@ -12,7 +12,7 @@ import { getWishlist } from "../features/wishlist/server/wishlist.actions";
 import { getCart } from "../features/cart/server/cartPage.action";
 import { FlyToCartProvider } from "../context/FlyToCartContext";
 import { ThemeProvider } from "../components/providers/theme-provider";
-import { CartState } from "../features/cart/store/cart.slice";
+import type { CartState } from "../features/cart/store/cart.slice";
 const exo = Exo({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800', '900'],
