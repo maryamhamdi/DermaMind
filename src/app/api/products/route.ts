@@ -4,7 +4,6 @@ export async function GET() {
       "https://dermamind-api-production.up.railway.app/api/Product"
     );
 
-    // 👇 مهم جداً
     if (!res.ok) {
       return Response.json(
         { error: "Failed to fetch from external API" },
@@ -16,8 +15,9 @@ export async function GET() {
 
     return Response.json(data);
   } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
     return Response.json(
-      { error: "Server error", details: error.message },
+      { error: "Server error", details: message },
       { status: 500 }
     );
   }
