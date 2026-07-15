@@ -74,10 +74,12 @@ return;
             return;
         } else {
             if (response?.errors) {
-                Object.keys(response?.errors).forEach((key) => {
-                    setError(key as keyof SigninValuesTypes, { message: response?.errors[key] })
-                })
-            }
+    const responseErrors = response.errors;
+
+    Object.keys(responseErrors).forEach((key) => {
+        setError(key as keyof SigninValuesTypes, { message: responseErrors[key] });
+    });
+}
             if (response?.message) {
                 toast.error(response.message)
             }

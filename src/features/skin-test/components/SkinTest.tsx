@@ -39,7 +39,7 @@ const stepVariants = {
   hidden: { opacity: 0, x: 40 },
   show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
   exit: { opacity: 0, x: -40, transition: { duration: 0.25 } },
-};
+}as const;
 
 const staggerContainer = (stagger = 0.1, delay = 0) => ({
   hidden: {},
