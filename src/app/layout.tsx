@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import '../styles/globals.css';
 import fav from '../assets/images/logo.png'
 import NavbarWrapper from "../components/shared/NavbarWrapper";
-import Footer from "../components/shared/Footer";
 import '../lib/fontawesome'
 import { Exo } from "next/font/google"
 import Providers from "../components/providers/providers";
