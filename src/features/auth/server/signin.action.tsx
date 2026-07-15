@@ -3,7 +3,28 @@
 import axios, { AxiosError } from "axios";
 import { SigninSchema, SigninValuesTypes } from "../schemas/signin.schema";
 
-export async function SigninAction(values: SigninValuesTypes) {
+type SigninSuccess = {
+    success: true;
+    message: string;
+    data: {
+        token: string;
+        user: {
+            id: string;
+            fullName: string;
+            email: string;
+        };
+    };
+};
+
+type SigninFailure = {
+    success: false;
+    message: string;
+    errors?: Record<string, string>;
+};
+
+type SigninResult = SigninSuccess | SigninFailure;
+
+export async function SigninAction(values: SigninValuesTypes): Promise<SigninResult> {
 
     // VALIDATION
     const reValidationResult = SigninSchema.safeParse(values);
@@ -34,29 +55,16 @@ export async function SigninAction(values: SigninValuesTypes) {
         const { keepme, ...requestBody } = values;
 
         // API REQUEST
-      console.time("TOTAL");
+        const { data } = await axios.post(
+            "https://dermamind-api-production-a383.up.railway.app/api/Auth/login",
+            requestBody
+        );
 
-console.time("API");
-
-const { data } = await axios.post(
-  "https://dermamind-api-production-a383.up.railway.app/api/Auth/login",
-  requestBody
-);
-
-console.timeEnd("API");
-
-console.time("RETURN");
-
-const result = {
-  success: true,
-  message: "Signed in successfully",
-  data
-};
-
-console.timeEnd("RETURN");
-console.timeEnd("TOTAL");
-
-return result;
+        return {
+            success: true,
+            message: "Signed in successfully",
+            data
+        };
 
     } catch (error) {
 

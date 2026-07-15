@@ -2,7 +2,27 @@
 
 import axios, { AxiosError } from "axios";
 
-export async function GoogleSigninAction(idToken: string) {
+type GoogleSigninSuccess = {
+    success: true;
+    message: string;
+    data: {
+        token: string;
+        user: {
+            id: string;
+            fullName: string;
+            email: string;
+        };
+    };
+};
+
+type GoogleSigninFailure = {
+    success: false;
+    message: string;
+};
+
+type GoogleSigninResult = GoogleSigninSuccess | GoogleSigninFailure;
+
+export async function GoogleSigninAction(idToken: string): Promise<GoogleSigninResult> {
     try {
         const { data } = await axios.post(
             "https://dermamind-api-production-a383.up.railway.app/api/Auth/google-login",
