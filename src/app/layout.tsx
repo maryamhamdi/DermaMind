@@ -12,7 +12,7 @@ import { getWishlist } from "../features/wishlist/server/wishlist.actions";
 import { getCart } from "../features/cart/server/cartPage.action";
 import { FlyToCartProvider } from "../context/FlyToCartContext";
 import { ThemeProvider } from "../components/providers/theme-provider";
-
+import { CartState } from "../features/cart/store/cart.slice";
 const exo = Exo({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -21,22 +21,13 @@ const exo = Exo({
 
 export default async function RouteLayout({ children }: { children: ReactNode }) {
 
-  let cartState: cartInitialStateType = {
-    cartId: "",
-    numOfCartItems: 0,
-    totalCartPrice: 0,
-    totalCartPriceAfterDiscount: null,
-    products: [],
-    error: "",
-    isLoading: false,
-  };
+let cartState: CartState = {
+  count: 0,
+};
 
-  let wishlistState: WishlistInitialStateType = {
-    wishlistProducts: [],
-    wishlistCount: 0,
-    isLoading: false,
-    error: null,
-  };
+let wishlistState = {
+  count: 0,
+};
 
 const response = await verifyToken();
 let skinType = null;
@@ -46,11 +37,11 @@ if (response.isAuthinticated) {
 
 
 
-    cartState.numOfCartItems =
-      cartResponse.data.cartItems?.reduce(
-        (sum, item) => sum + item.quantity,
-        0
-      ) || 0;
+    cartState.count =
+  cartResponse.data.cartItems?.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  ) || 0;
 
   } catch (error) {
     console.log("CART ERROR =>", error);
@@ -61,8 +52,8 @@ if (response.isAuthinticated) {
 
 
 
-    wishlistState.wishlistCount =
-      wishlistResponse.data.wishlistItems?.length || 0;
+   wishlistState.count =
+  wishlistResponse.data.wishlistItems?.length || 0;
 
   } catch (error) {
     console.log("WISHLIST ERROR =>", error);
@@ -137,16 +128,10 @@ content="DermaMind, AI Skin Analysis, Skin Care, Skincare Products, Artificial I
 
  <Providers
   preloadedState={{
-    auth: response,
-
-    cart: {
-      count: cartState.numOfCartItems,
-    },
-
-    wishlist: {
-      count: wishlistState.wishlistCount,
-    },
-  }}
+  auth: response,
+  cart: cartState,
+  wishlist: wishlistState,
+}}
 >
   <FlyToCartProvider>
     <NavbarWrapper />
