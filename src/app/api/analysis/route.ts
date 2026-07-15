@@ -1,9 +1,11 @@
-export async function POST(req) {
+import { NextRequest } from "next/server";
+
+export async function POST(req: NextRequest) {
   const formData = await req.formData();
 
   try {
     const response = await fetch(
-     "https://dermamind-api-production-a383.up.railway.app/api/DermaScan/analyze",
+      "https://dermamind-api-production-a383.up.railway.app/api/DermaScan/analyze",
       {
         method: "POST",
         body: formData,
