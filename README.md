@@ -211,7 +211,7 @@ The application follows a scalable feature-based architecture built with Next.js
 
 | Light | Dark |
 |---------|---------|
-| ![](/docs/screenshots/shop-light.png) | ![](/docs/screenshots/shop-dark.png) |
+| ![](/docs/screenshots/Shop-light.png) | ![](/docs/screenshots/Shop-dark.png) |
 
 ---
 
