@@ -28,7 +28,26 @@ DermaMind combines Artificial Intelligence, personalized skin analysis, and skin
 
 # 🌐 Live Demo
 
-https://your-vercel-link.vercel.app
+**[derma-mind-3j78.vercel.app](https://derma-mind-3j78.vercel.app/)**
+
+---
+
+# 📑 Table of Contents
+
+- [Project Preview](#-project-preview)
+- [About](#-about)
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Screenshots](#-screenshots)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Application Architecture](#-application-architecture)
+- [User Flow](#-user-flow)
+- [Project Status](#-project-status)
+- [Getting Started](#-getting-started)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
@@ -166,7 +185,7 @@ The application follows a scalable feature-based architecture built with Next.js
 |---------|---------|
 | ![](/docs/screenshots/skintest-light-ques.png) | ![](/docs/screenshots/skintest-dark.png) |
 
-|Competion-light | Completion-dark |
+| Completion-light | Completion-dark |
 |---------|------------|
 | ![](/docs/screenshots/skintest-light.png) | ![](/docs/screenshots/skin-test-dark.png) |
 
@@ -415,13 +434,25 @@ npm start
 
 ---
 
-# 👩‍💻 Designed & Developed By
+# 👩‍💻 Author
 
 ### Mariam Hamdy Mohamed
 
-**Faculty of Computers & Information Systems**
+**Frontend Developer | Faculty of Computers & Information Systems**
+
+<p>
+<a href="https://www.linkedin.com/in/maryam-hamdy-232763262"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+<a href="mailto:hamdymaryam874@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+<a href="https://portfolio-silk-six-4lg18xqbkq.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white"></a>
+</p>
 
 Graduation Project • 2026
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -435,4 +466,8 @@ Graduation Project • 2026
 
 <p align="center">
 Made with ❤️ using Next.js, TypeScript & Tailwind CSS
+</p>
+
+<p align="center">
+⭐ If you like this project, consider giving it a star!
 </p>
